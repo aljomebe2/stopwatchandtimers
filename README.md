@@ -16,25 +16,27 @@ This is a simple application that allows users to create and manage multiple sto
    - Use the dropdown menu to select "Stopwatch" or "Timer."
    - Click the "Add" button to create a new card.
 
- **Stopwatch Controls**:
+3. **Stopwatch Controls**:
    - **Start/Pause**: Start or pause the stopwatch.
    - **Lap**: Record the current elapsed time as a lap.
    - **Reset**: Reset the stopwatch and clear laps.
    - **Delete**: Remove the stopwatch card.
 
- **Timer Controls**:
+4. **Timer Controls**:
    - **Set**: Enter a time in `MM:SS` format and click "Set."
    - **Start/Pause**: Start or pause the countdown.
    - **Reset**: Reset the timer to `00:00`.
    - **Delete**: Remove the timer card.
 
- **Laps**:
+5. **Laps**:
    - Laps are displayed below the stopwatch when recorded.
+
+## Challenge Attempted 
+
+- **Delete a stopwatch card; confirm before removal.**
 
 ## Technologies Used
 
 - **HTML**: For the structure of the app.
 - **CSS**: For styling the app.
 - **JavaScript**: For dynamic functionality and interactivity.
-
-  Brought to life by Alejandro Melendez.
