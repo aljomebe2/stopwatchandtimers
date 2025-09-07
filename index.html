@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stopwatch and Timers</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div style="display:flex; gap:12px; align-items:center;">
+      <label for="type-select" style="color:inherit; font-weight:600;">Add card:</label>
+      <select id="type-select" aria-label="Select card type">
+        <option value="stopwatch">Stopwatch</option>
+        <option value="timer">Timer</option>
+      </select>
+      <button id="add" class="btn add-button">Add</button>
+    </div>
+  </header>
+
+  <main id="app">
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

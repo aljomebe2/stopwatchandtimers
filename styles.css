@@ -1,0 +1,277 @@
+
+:root{
+  --neon: #00ffc8;
+  --neon-dim: rgba(0,255,200,0.07);
+  --bg: #121212;
+  --muted: rgba(0,255,200,0.12);
+  --danger: #ff6b6b;
+  --accent-yellow: #ffd166;
+}
+
+html,body{
+  height:100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    gap: 20px;
+    padding-top: 40px;
+    background: var(--bg);
+    color: var(--neon);
+}
+
+/* header controls */
+header {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+}
+
+header .controls {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  color: inherit;
+}
+
+/* Title */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
+}
+
+/* App container: support both .stopwatch-container and #app */
+.stopwatch-container,
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 8px;
+}
+
+/* Single stopwatch/timer card */
+.stopwatch-card {
+    margin: 8px;
+    padding: 12px;
+    border: 1px solid var(--neon);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 240px;
+    max-width: 280px;
+    background: rgba(0, 255, 200, 0.03);
+    box-shadow: 0 0 10px rgba(0, 255, 200, 0.03);
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* small hover lift for cards */
+.stopwatch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 22px rgba(0,255,200,0.06);
+}
+
+/* Label above each stopwatch */
+.stopwatch-label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--neon);
+    align-self: flex-start;
+}
+
+/* Timer display */
+.stopwatch-timer {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding: 8px 14px;
+    background: var(--neon-dim);
+    border: 2px solid var(--neon);
+    border-radius: 8px;
+    color: var(--neon);
+    text-shadow: 0 0 6px var(--neon), 0 0 10px var(--neon);
+    box-shadow: 0 0 10px rgba(0, 255, 200, 0.20);
+    min-width: 180px;
+    text-align: center;
+    position: relative;
+}
+
+/* show "Time's up!" via pseudo content when data-finished-text is present */
+.stopwatch-timer[data-finished-text]::after {
+  content: attr(data-finished-text);
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 6px;
+  color: var(--danger);
+  text-align: center;
+}
+
+/* Controls group */
+.stopwatch-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Generic button styling */
+button.btn {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border: 2px solid var(--neon);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--neon);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 6px var(--neon), 0 0 12px var(--neon);
+    transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+}
+
+/* Hover / active */
+button.btn:hover {
+    background: var(--neon);
+    color: var(--bg);
+    transform: scale(1.03);
+    box-shadow: 0 0 16px var(--neon), 0 0 24px var(--neon);
+}
+
+button.btn:active {
+    background: #00bfa5;
+    box-shadow: 0 0 8px rgba(0,191,165,0.6);
+    transform: scale(0.98);
+}
+
+/* Add button special layout */
+.add-button {
+    display: inline-block;
+    margin-left: 6px;
+}
+
+/* Delete / Reset / Toggle specific color accents */
+.btn-delete {
+    border-color: var(--danger);
+    color: var(--danger);
+    box-shadow: 0 0 6px rgba(255, 107, 107, 0.6);
+}
+
+.btn-delete:hover {
+    background: var(--danger);
+    color: var(--bg);
+    box-shadow: 0 0 16px var(--danger);
+}
+
+.btn-reset {
+    border-color: var(--accent-yellow);
+    color: var(--accent-yellow);
+    box-shadow: 0 0 6px rgba(255, 209, 102, 0.45);
+}
+
+.btn-reset:hover {
+    background: var(--accent-yellow);
+    color: var(--bg);
+    box-shadow: 0 0 16px var(--accent-yellow);
+}
+
+/* countdown row and input (timers) */
+.countdown-row,
+.controls-top {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  justify-content: center;
+}
+
+.countdown-input {
+  width: 100px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,255,200,0.15);
+  background: rgba(0,0,0,0.08);
+  color: inherit;
+}
+
+/* laps list and title */
+.laps {
+  list-style: decimal;
+  margin: 8px 0 0 18px;
+  padding: 0;
+  width: 100%;
+  align-self: flex-start;
+  color: inherit;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.laps-title {
+  align-self: flex-start;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: #bfffe9;
+}
+
+/* finished / ended states */
+.stopwatch-card.finished {
+  background: rgba(255, 100, 100, 0.06);
+  border-color: var(--danger);
+  box-shadow: 0 0 8px rgba(255,107,107,0.08);
+}
+
+/* optional small "Time's up" visible block (if you want a separate visible element) */
+.time-up {
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--danger);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* accessibility focus states */
+button.btn:focus,
+.countdown-input:focus {
+  outline: 2px dashed rgba(0,255,200,0.35);
+  outline-offset: 2px;
+}
+
+/* small responsive tweak */
+@media (max-width:520px) {
+  .stopwatch-card {
+    min-width: 92%;
+    max-width: 92%;
+  }
+  .stopwatch-timer {
+    font-size: 1.8rem;
+  }
+}
+
+/* misc: style the select in the header */
+#type-select {
+  padding:6px 8px;
+  border-radius:6px;
+  border:2px solid rgba(0,255,200,0.12);
+  background: rgba(0,0,0,0.08);
+  color: var(--neon);
+}
